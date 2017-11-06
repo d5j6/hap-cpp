@@ -36,6 +36,10 @@
 		C6A24BF71F8C1C450006B8BF /* AccessoryServer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AccessoryServer.hpp; sourceTree = "<group>"; };
 		C6AC2CE31F980B52001B61C6 /* IPRouter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IPRouter.cpp; sourceTree = "<group>"; };
 		C6AC2CE41F980B52001B61C6 /* IPRouter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IPRouter.hpp; sourceTree = "<group>"; };
+		C6ACD2C51FAE33C00097B713 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		C6ACD2C61FAE33CE0097B713 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		C6ACD2C71FAE33CE0097B713 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C6ACD2C91FAE365A0097B713 /* HomeKitAccessoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeKitAccessoryProtocol.h; sourceTree = "<group>"; };
 		C6CA53BF1F991F530043029B /* BLETransport.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BLETransport.cpp; sourceTree = "<group>"; };
 		C6CA53C01F991F530043029B /* BLETransport.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BLETransport.hpp; sourceTree = "<group>"; };
 		C6CA53C11F991F650043029B /* IPTransport.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IPTransport.cpp; sourceTree = "<group>"; };
@@ -84,16 +88,17 @@
 		C6A24BE61F8C16C60006B8BF = {
 			isa = PBXGroup;
 			children = (
-				C65B09B71F8E4E88003225ED /* Makefile */,
+				C6ACD2C41FAE33B00097B713 /* sample */,
 				C6A24BF11F8C170F0006B8BF /* src */,
 				C6A24BF51F8C19750006B8BF /* tests */,
+				C6ACD2C81FAE33DD0097B713 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
 		C6A24BF11F8C170F0006B8BF /* src */ = {
 			isa = PBXGroup;
 			children = (
-				C66854751F93F5B700FE685A /* main.cpp */,
+				C6ACD2C91FAE365A0097B713 /* HomeKitAccessoryProtocol.h */,
 				C6A24BF61F8C1C450006B8BF /* AccessoryServer.cpp */,
 				C6A24BF71F8C1C450006B8BF /* AccessoryServer.hpp */,
 				C6A24BF21F8C171B0006B8BF /* objects */,
@@ -208,6 +213,25 @@
 			children = (
 			);
 			path = profiles;
+			sourceTree = "<group>";
+		};
+		C6ACD2C41FAE33B00097B713 /* sample */ = {
+			isa = PBXGroup;
+			children = (
+				C66854751F93F5B700FE685A /* main.cpp */,
+			);
+			path = sample;
+			sourceTree = "<group>";
+		};
+		C6ACD2C81FAE33DD0097B713 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C6ACD2C51FAE33C00097B713 /* CMakeLists.txt */,
+				C6ACD2C61FAE33CE0097B713 /* CONTRIBUTING.md */,
+				C65B09B71F8E4E88003225ED /* Makefile */,
+				C6ACD2C71FAE33CE0097B713 /* README.md */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C6FF2E371F9CC58E00CE8D71 /* ip-transport */ = {

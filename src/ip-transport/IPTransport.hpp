@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <string>
 
-#include <MulticastDNS.hpp>
+#include "mDNS/MulticastDNS.hpp"
 
 /**
  *  @struct HTTP Request struct for IPTransport abstract class
