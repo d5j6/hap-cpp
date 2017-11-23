@@ -10,6 +10,8 @@
 #include <unistd.h>
 #include <iostream>
 
+#include <HomeKitAccessoryProtocol.h>
+
 void usage() {
     std::cout << "OVERVIEW: HomeKit Accessory Protocol library for C++" << std::endl << std::endl;
     std::cout << "USAGE: hap-cpp [OPTIONS...]" << std::endl << std::endl;

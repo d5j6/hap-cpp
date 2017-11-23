@@ -1,29 +1,22 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required (VERSION 3.9)
 
-project(hap-cpp)
-enable_testing()
+project (hap-cpp VERSION 1.0.0 DESCRIPTION "HomeKitAccessory library for C++")
 
-# The version number.
-set(HAP_VERSION_MAJOR 1)
-set(HAP_VERSION_MINOR 0)
+set (CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_CXX_STANDARD 11)
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set (warnings "-Wall -Wextra -Werror")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+    set (warnings "/W4 /WX /EHsc")
+endif()
+if (NOT CONFIGURED_ONCE)
+    set (CMAKE_CXX_FLAGS "${warnings}" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+    set (CMAKE_C_FLAGS "${warnings}" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+endif()
 
-file(GLOB SOURCES src/**/*.cpp)
-file(GLOB INCLUDES src/**/*.hpp)
+# Library subdirectory
+add_subdirectory (src)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ansi -Wall -pedantic") # -Werror
-
-# configure a header file to pass some of the CMake settings
-# to the source code
-# configure_file (
-#   "${PROJECT_SOURCE_DIR}/TutorialConfig.h.in"
-#   "${PROJECT_BINARY_DIR}/TutorialConfig.h"
-#   )
-
-# add the binary tree to the search path for include files
-# so that we will find TutorialConfig.h
-include_directories("${PROJECT_SOURCE_DIR}/src")
-
-# add the executable
-add_library(hap-cpp ${SOURCES} ${INCLUDES})
+# Sample executable subdirectory
+add_subdirectory (sample)
