@@ -1,6 +1,6 @@
 # Find all sources recursively
-file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-file(GLOB_RECURSE INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+file (GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+file (GLOB_RECURSE INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
 
 # Create a library called "hap" which includes the source files SOURCES
 # The extension is already found. Any number of sources could be listed here.

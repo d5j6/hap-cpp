@@ -295,4 +295,8 @@ xcuserdata/
 
 ### Custom ###
 
+## Sample executable
 sample/sample
+
+## Third party folder
+thirdparty/
