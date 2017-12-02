@@ -1,5 +1,7 @@
+cmake_minimum_required(VERSION 3.9)
+
 # Download and unpack googletest at configure time
-configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+configure_file(CMakeLists.txt.in ${CMAKE_BINARY_DIR}/googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
   RESULT_VARIABLE result
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download )
@@ -31,12 +33,12 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Find all sources recursively
-file (GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable (hap-tests ${SOURCES})
+add_executable(hap-tests ${SOURCES})
 
-target_link_libraries (hap-tests hap)
-target_link_libraries (hap-tests gtest_main)
+target_link_libraries(hap-tests hap)
+target_link_libraries(hap-tests gtest_main)
 
 add_test(NAME hap-tests COMMAND hap-cpp-tests)
