@@ -292,8 +292,3 @@ xcuserdata/
 /*.gcno
 
 # End of https://www.gitignore.io/api/c,vim,c++,linux,macos,cmake,xcode,emacs,windows,sublimetext
-
-### Custom ###
-
-## binaries folder
-bin/

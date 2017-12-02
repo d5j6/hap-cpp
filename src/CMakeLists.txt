@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.9.4)
 
 # Find all sources recursively
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
@@ -8,8 +8,8 @@ file(GLOB_RECURSE INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
 # The extension is already found. Any number of sources could be listed here.
 add_library(hap SHARED ${SOURCES})
 
-# set_target_properties(hap PROPERTIES VERSION ${PROJECT_VERSION})
-# set_target_properties(hap PROPERTIES SOVERSION 1)
+set_target_properties(hap PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(hap PROPERTIES SOVERSION 1)
 
 set_target_properties(hap PROPERTIES PUBLIC_HEADER HomeKitAccessoryProtocol.h)
 
