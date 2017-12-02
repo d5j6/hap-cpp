@@ -14,6 +14,7 @@
 #include <vector>
 
 #include <Accessory.hpp>
+#include <IPTransport.hpp>
 #include <Pairing.hpp>
 
 class AccessoryServer {

@@ -17,10 +17,12 @@ set_target_properties(hap PROPERTIES PUBLIC_HEADER HomeKitAccessoryProtocol.h)
 # when other libraries or executables link to hap
 target_include_directories(hap PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport
+    ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport/mDNS
 	${CMAKE_CURRENT_SOURCE_DIR}/objects
 	${CMAKE_CURRENT_SOURCE_DIR}/objects/accessories
 	${CMAKE_CURRENT_SOURCE_DIR}/objects/characteristics
 	${CMAKE_CURRENT_SOURCE_DIR}/objects/profiles
-	${CMAKE_CURRENT_SOURCE_DIR}/objects/services
-	${CMAKE_CURRENT_SOURCE_DIR}/pairing
+    ${CMAKE_CURRENT_SOURCE_DIR}/objects/services
+    ${CMAKE_CURRENT_SOURCE_DIR}/pairing
 )

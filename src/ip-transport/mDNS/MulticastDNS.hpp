@@ -12,9 +12,11 @@
 #include <stdio.h>
 
 class MulticastDNS {
+private:
+    bool enabled;
 public:
-    void enableDiscovery();
-    void disableDiscovery();
+    bool enableDiscovery();
+    bool disableDiscovery();
 };
 
 #endif /* MulticastDNS_hpp */

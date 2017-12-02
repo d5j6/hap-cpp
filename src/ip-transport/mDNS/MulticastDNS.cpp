@@ -7,3 +7,15 @@
 //
 
 #include "MulticastDNS.hpp"
+
+bool MulticastDNS::enableDiscovery() {
+
+    this->enabled = true;
+
+    return this->enabled;
+}
+
+bool MulticastDNS::disableDiscovery() {
+
+    return this->enabled;
+}
