@@ -1,4 +1,28 @@
-cmake_minimum_required(VERSION 3.9.4)
+cmake_minimum_required(VERSION 3.10.0)
+
+# Download and unpack mDNSResponder at configure time
+configure_file(CMakeLists.txt.in ${CMAKE_BINARY_DIR}/mDNSResponder-download/CMakeLists.txt)
+
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download)
+if(result)
+  message(FATAL_ERROR "CMake step for mDNSResponder failed: ${result}")
+endif()
+
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+  RESULT_VARIABLE result
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download )
+if(result)
+  message(FATAL_ERROR "Build step for mDNSResponder failed: ${result}")
+endif()
+
+# Add mDNSResponder directly to our build.
+add_subdirectory(
+  ${CMAKE_BINARY_DIR}/mDNSResponder-src
+  ${CMAKE_BINARY_DIR}/mDNSResponder-build
+  EXCLUDE_FROM_ALL
+)
 
 # Find all sources recursively
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
@@ -15,14 +39,15 @@ set_target_properties(hap PROPERTIES PUBLIC_HEADER HomeKitAccessoryProtocol.h)
 
 # Make sure the compiler can find include files for our hap library
 # when other libraries or executables link to hap
-target_include_directories(hap PUBLIC
-	${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport
-    ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport/mDNS
-	${CMAKE_CURRENT_SOURCE_DIR}/objects
-	${CMAKE_CURRENT_SOURCE_DIR}/objects/accessories
-	${CMAKE_CURRENT_SOURCE_DIR}/objects/characteristics
-	${CMAKE_CURRENT_SOURCE_DIR}/objects/profiles
-    ${CMAKE_CURRENT_SOURCE_DIR}/objects/services
-    ${CMAKE_CURRENT_SOURCE_DIR}/pairing
+target_include_directories(
+  hap PUBLIC
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport
+  ${CMAKE_CURRENT_SOURCE_DIR}/ip-transport/mDNS
+  ${CMAKE_CURRENT_SOURCE_DIR}/objects
+  ${CMAKE_CURRENT_SOURCE_DIR}/objects/accessories
+  ${CMAKE_CURRENT_SOURCE_DIR}/objects/characteristics
+  ${CMAKE_CURRENT_SOURCE_DIR}/objects/profiles
+  ${CMAKE_CURRENT_SOURCE_DIR}/objects/services
+  ${CMAKE_CURRENT_SOURCE_DIR}/pairing
 )
