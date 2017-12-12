@@ -3,26 +3,23 @@ cmake_minimum_required(VERSION 3.10.0)
 # Download and unpack mDNSResponder at configure time
 configure_file(CMakeLists.txt.in ${CMAKE_BINARY_DIR}/mDNSResponder-download/CMakeLists.txt)
 
-execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+execute_process(
+  COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
   RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download)
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download
+)
 if(result)
   message(FATAL_ERROR "CMake step for mDNSResponder failed: ${result}")
 endif()
 
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
+execute_process(
+  COMMAND ${CMAKE_COMMAND} --build .
   RESULT_VARIABLE result
-  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download )
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/mDNSResponder-download
+)
 if(result)
   message(FATAL_ERROR "Build step for mDNSResponder failed: ${result}")
 endif()
-
-# Add mDNSResponder directly to our build.
-add_subdirectory(
-  ${CMAKE_BINARY_DIR}/mDNSResponder-src
-  ${CMAKE_BINARY_DIR}/mDNSResponder-build
-  EXCLUDE_FROM_ALL
-)
 
 # Find all sources recursively
 file(GLOB_RECURSE SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
