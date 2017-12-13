@@ -9,7 +9,7 @@ ExternalProject_Add(
   GIT_TAG           878.1.1
   SOURCE_DIR        "${CMAKE_BINARY_DIR}/mDNSResponder-src"
   CONFIGURE_COMMAND ""
-  BUILD_COMMAND     cd mDNSPosix && make os=x
+  BUILD_COMMAND     cd mDNSPosix && make os=x libdns_sd BUILDDIR=${CMAKE_BINARY_DIR}/bin
   BUILD_IN_SOURCE   1
   INSTALL_COMMAND   ""
   TEST_COMMAND      ""

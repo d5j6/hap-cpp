@@ -48,3 +48,15 @@ target_include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/objects/services
   ${CMAKE_CURRENT_SOURCE_DIR}/pairing
 )
+
+# Find dns_sd.h in build folder
+file(GLOB_RECURSE DNS_SD_HEADER ${CMAKE_BINARY_DIR}/*/dns_sd.h)
+
+# Find libdns_sd.dylib in build folder
+find_library(
+  DNS_SD_DYLIB
+  dns_sd
+  ${CMAKE_BINARY_DIR}/bin
+)
+
+target_link_libraries(hap ${DNS_SD_DYLIB})
